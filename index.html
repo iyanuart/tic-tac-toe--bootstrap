@@ -1,0 +1,214 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
+</head>
+<style>
+    body{
+        background: url(360_F_290468474_6yJ9eBPW2wevarR9cbXN87TCFJDVVuAR.jpg);
+        background-repeat: no-repeat;
+        background-size:cover;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif,monospace;
+        color: rgb(57,61,64);
+    }
+    nav{
+        background-color: rgb(254,253,252);
+    }
+    #hint{
+        width: 97.5%;
+        height: 9%;
+    }
+    #a:hover{
+        box-shadow: 1px 2px 5px  red,1px 1px 10px red;
+    }
+    #a2:hover{
+        box-shadow: 1px 2px 5px  rgb(1, 71, 1),1px 1px 10px rgb(1, 71, 1);
+    }
+    #a3:hover{
+        box-shadow: 1px 2px 5px  rgb(30, 30, 255),1px 1px 10px rgb(30, 30, 255);
+    }
+    #b:hover{
+        box-shadow: 1px 2px 5px  rgb(1, 71, 1),1px 1px 10px rgb(1, 71, 1);
+    }
+    #b2:hover{
+        box-shadow: 1px 2px 5px  rgb(30, 30, 255),1px 1px 10px rgb(30, 30, 255);
+    }
+    #b3:hover{
+        box-shadow: 1px 2px 5px  red,1px 1px 10px red;
+    }
+    #c:hover{
+        box-shadow: 1px 2px 5px  rgb(30, 30, 255),1px 1px 10px rgb(30, 30, 255);
+    }
+    #c2:hover{
+        box-shadow: 1px 2px 5px  red,1px 1px 10px red;
+    }
+    #c3:hover{
+        box-shadow: 1px 2px 5px  rgb(1, 71, 1),1px 1px 10px rgb(1, 71, 1);
+    }
+    @media screen and (max-width:475px)  {
+        #a{
+            width: 20%;
+           padding-top: 30px;
+            padding-bottom: 40px;
+        }
+        #a2{
+            width: 20%;
+           padding-top: 30px;
+            padding-bottom: 40px;
+        }
+        #a3{
+            width: 20%;
+           padding-top: 30px;
+            padding-bottom: 40px;
+        }
+        #b{
+            width: 20%;
+           padding-top: 30px;
+            padding-bottom: 40px;
+        }
+        #b2{
+            width: 20%;
+           padding-top: 30px;
+            padding-bottom: 40px;
+        }
+        #b3{
+            width: 20%;
+           padding-top: 30px;
+            padding-bottom: 40px;
+        }
+        #c{
+            width: 20%;
+           padding-top: 30px;
+            padding-bottom: 40px;
+        }
+        #c2{
+            width: 20%;
+           padding-top: 30px;
+            padding-bottom: 40px;
+        }#c3{
+            width: 20%;
+           padding-top: 30px;
+            padding-bottom: 40px;
+        }
+    }
+    @media screen and ( min-width:475px){
+        #a{
+            width: 10%;
+           padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        #a2{
+            width: 10%;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        #a3{
+            width: 10%;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        #b{
+            width: 10%;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        #b2{
+            width: 10%;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        #b3{
+            width: 10%;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        #c{
+            width: 10%;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        #c2{
+            width: 10%;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        #c3{
+            width: 10%;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+    }
+
+</style>
+<body class="overflow-x-hidden ">
+    <div class="ms-3 me-3">
+        
+            <div class="container-fluid d-flex justify-content-center position-fixed  top-0 bg-white">
+                <h1 class="text-uppercase text-decoration-underline fw-bold">Tic Tac Toe</h1>
+            </div>
+          
+          <div class="row mt-5 pt-4 ">
+            <div class="col-lg-5 col-md col-sm ">
+                <label class="form-label text-capitalize fw-bolder fs-3">first player</label>
+                <input type="text" class="form-control " placeholder="Enter your Name">
+            </div>
+            <div class="col-lg-5 col-md col-sm">
+                <label class="form-label text-capitalize fw-bolder fs-3">second player</label>
+                <input type="text" class="form-control " placeholder="Enter your Name">
+            </div>
+            <div class="pt-2">
+                <button type="button" class="btn btn-dark text-info" >Play Now</button>
+                <button type="button" class="btn btn-dark text-warning" >Click to Refresh</button>
+                <p  class="fs-4 fw-bold text-danger"></p>
+            </div>
+        
+        </div>
+        
+            <div class="mt-3 container-fluid" id="table" >
+                <div class="border-2 d-flex justify-content-center gap-2 row "  >
+                    <div  id="a" class="border border-2 rounded-4 border-danger   bg-light td col-1  mb-1 " ></div>
+                    <div  id="a2" class="border border-2 rounded-4 border-success  col-1 mb-1  "></div>
+                    <div  id="a3" class="border  border-2 rounded-4 border-primary  bg-light td col-1 mb-1 "></div>
+                </div>
+                <div class="border-2 d-flex gap-2 justify-content-center row">
+                    <div  id="b" class="border border-2 rounded-4 border-success  td col-1 mb-1  "></div>
+                    <div  id="b2" class="border border-2 rounded-4 border-primary  bg-light td col-1 mb-1 "></div>
+                    <div  id="b3" class="border border-2 rounded-4 border-danger  td col-1 mb-1 "></div>
+                </div>
+                <div class="border-2 d-flex gap-2 justify-content-center row " >
+                    <div  id="c" class="border border-2 rounded-4 border-primary  bg-light td col-1 mb-1 "></div>
+                    <div  id="c2" class="border border-2 rounded-4 border-danger  td col-1 mb-1 "></div>
+                    <div  id="c3" class="border border-2 rounded-4 border-success td col-1 mb-1 "></div>
+                </div>
+                <div class="mt-1 d-flex justify-content-center gap-2 row-2 ">
+                    <button type="button" class="btn btn-success " >Continue</button>
+                    <button type="button" class="btn btn-danger" >Restart</button>
+                </div>
+            </div>
+
+        <div class="mt-3 mb- py-3">
+            <h3 class="text-decoration-underline fw-bolder">Score Board</h3>
+            <div class="border border-3 border-dark border-bottom rounded px-3">
+                <div class="row px-3 text-center" id="row1">
+                    <p class="col-5 mt-2 fw-bolder fs-5">Name</p>
+                    <p class="col-3 mt-2 fw-bolder fs-5">ID</p>
+                    <p class="col-3 mt-2 fw-bolder fs-5">Score</p>
+                </div>
+                <hr class="border-3 border-dark ">
+                <div class="row text-center">
+                    <p class="col-5 fs-3" id="name1"></p>
+                    <p class="col-3 fs-2 fw-bolder bg-light">X</p>
+                    <p class="col-3 fs-1 fw-bolder" id="score1">0</p>
+                </div>
+                <div class="row text-center">
+                    <p class="col-5 fs-3" id="name2"></p>
+                    <p class="col-3 fs-2 fw-bolder bg-light">O</p>
+                    <p class="col-3 fs-1 fw-bolder" id="score2">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
